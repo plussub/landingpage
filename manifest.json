@@ -1,0 +1,15 @@
+{
+  "short_name": "Pesto",
+  "name": "Pesto by Polymer",
+  "display": "standalone",
+  "icons": [{
+    "src": "res/plussub-128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src":  "res/plussub.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }],
+  "start_url": "index.html"
+}
