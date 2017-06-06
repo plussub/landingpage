@@ -18,7 +18,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 
-<dom-module id="demo-plussub">
+<dom-module id="description-plussub">
   <template>
 
     <style>
@@ -26,16 +26,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .content {
       display: block;
       position: relative;
-      max-width: 1000px;
+      max-width: calc(100% - 10px);
       margin: 5px auto;
     }
 
-    .card-container {
-      display: inline-block;
-      width: 33.33%;
-      color: black;
-      text-decoration: none;
-    }
 
     paper-card {
       display: block;
@@ -69,63 +63,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .content {
         max-width: 800px;
       }
-
-      .card-container {
-        width: 50%;
-      }
     }
 
     @media (max-width: 719px) {
-      app-toolbar {
-        height: 60px;
-      }
-
-      [condensed-title] {
-        background-image: url('../res/plussub128.png');
-        background-size: 60px;
-      }
-
-      [main-title] {
-        top: -60px;
-        background-image: url('../res/plussub267.png');
-        background-size: 90px;
-      }
 
       .content {
         max-width: 400px;
-      }
-
-      .card-container {
-        width: 100%;
       }
     }
 
     </style>
 
       <div class="content">
-    <template is="dom-repeat" items="{{recipes2}}"><!-- No empty text node
-        --><a href="#/detail/{{item.id}}" class="card-container">
-            <paper-card image="{{item.imageUrl}}">
-              <div class="card-content">
-                <h2>{{item.name}}</h2>
-                <p>By <span>{{item.author}}</span></p>
-              </div>
-            </paper-card>
-          </a><!-- No empty text node
-      --></template>
+        <paper-card>
+          <div class="card-content">
+            <slot></slot>
+          </div>
+        </paper-card>
       </div>
+
   </template>
 
   <script>
 
   Polymer({
-
-    is: 'demo-plussub',
-
-    properties: {
-        recipes2: Object
-    }
-
+    is: 'description-plussub'
   });
 
   </script>

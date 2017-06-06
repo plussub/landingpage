@@ -32,9 +32,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="recipe-detail.html">
 <link rel="import" href="recipe-list.html">
 <link rel="import" href="app-icons.html">
+<link rel="import" href="description-plussub.html">
 <link rel="import" href="demo-plussub.html">
 
-<dom-module id="recipe-app">
+
+<dom-module id="landingpage-plussub">
 
     <template>
 
@@ -162,9 +164,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <paper-item name="settings">
                         <a href="#/settings" name="name">Settings</a>
                     </paper-item>
-                    <paper-item name="donate">
-                        <a href="#/donate" name="name">Donate</a>
-                    </paper-item>
                 </paper-listbox>
 
             </app-drawer>
@@ -192,9 +191,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             <paper-tab name="settings">
                                 <a href="#/settings" name="name">Settings</a>
                             </paper-tab>
-                            <paper-tab name="donate">
-                                <a href="#/donate" name="name">Donate</a>
-                            </paper-tab>
                         </paper-tabs>
                     </app-toolbar>
 
@@ -208,19 +204,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <!--<div class="content">-->
                 <iron-pages selected="[[_selectedPage]]" attr-for-selected="name">
 
-                    <recipe-list name="home" recipes="[[recipes]]">
+                    <description-plussub name="home">
                         <paper-icon-button icon="app:menu" drawer-toggle slot="drawer-toggle"></paper-icon-button>
-                    </recipe-list>
+
+                        <p>
+                            With +Sub it's possible, to add subtitles to each (HTML5) video.
+                        </p>
+                        <p>
+                            Open the +Sub menu and choose a movie.
+                            +Sub search the best matching subtitle in the selected language and inject it into
+                            the html video.
+                        </p>
+                        <p>
+                            The subtitle is now connected with the video and will displayed at the bottom of the video.
+                        </p>
+                        <p>
+                            Featurelist:
+                             - Load subtitle via file
+                             - Load subtitle via search field from opensubtitles
+                             - Show subtitle delayed or ahead
+                             - Customizeable look & feel for subtitles (options)
+                        </p>
+                        <p>
+                            Change 2.0:
+                             - New UI
+                             - Remove unsupported subtitles from subtitle selection
+                             - Automatic subtitle selection
+                        </p>
+
+                        <p>
+                            Tested sites:
+                            youtube.com
+                            netflix.com
+                            amazon instant video
+                        </p>
+                        <p>
+                            +Sub is now on github:
+                            https://github.com/ste-xx/plussub
+                        </p>
+                    </description-plussub>
 
                     <demo-plussub name="demo" recipes2="[[recipes2]]">
                         <paper-icon-button icon="app:menu" drawer-toggle slot="drawer-toggle"></paper-icon-button>
                     </demo-plussub>
 
                     <recipe-list name="settings">
-                        <paper-icon-button icon="app:menu" drawer-toggle slot="drawer-toggle"></paper-icon-button>
-                    </recipe-list>
-
-                    <recipe-list name="donate">
                         <paper-icon-button icon="app:menu" drawer-toggle slot="drawer-toggle"></paper-icon-button>
                     </recipe-list>
 
@@ -239,7 +267,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         Polymer({
 
-            is: 'recipe-app',
+            is: 'landingpage-plussub',
 
             properties: {
 
