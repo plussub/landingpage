@@ -1,5 +1,7 @@
 language: javascript
-script: bower install
+before_script:
+  - npm install -g bower
+  - bower install
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY
