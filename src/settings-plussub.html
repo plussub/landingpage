@@ -17,9 +17,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
-<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 
-<dom-module id="demo-plussub">
+<script src="http://localhost:8080/test/end_to_end/fakeVersionService.js"></script>
+
+<script type="text/javascript" src="http://localhost:8080/src/js/MessageBus.js"></script>
+<script type="text/javascript" src="http://localhost:8080/src/js/Descriptor.js"></script>
+<script src="http://localhost:8080/src/js/LogService.js"></script>
+
+
+
+<script src="http://localhost:8080/src/js/background/meta/StoreService.js"></script>
+<script src="http://localhost:8080/src/js/background/meta/MetaConfig.js"></script>
+<script src="http://localhost:8080/src/js/background/meta/MetaService.js"></script>
+<script src="http://localhost:8080/src/js/background/parser/SrtParser.js"></script>
+<script src="http://localhost:8080/src/js/background/parser/ParserService.js"></script>
+<script src="http://localhost:8080/src/js/background/movie_information/MovieInformationService.js"></script>
+<script src="http://localhost:8080/src/js/background/subtitle_provider/pako/pako.js"></script>
+<script src="http://localhost:8080/src/js/background/subtitle_provider/SubtitleProvider.js"></script>
+<script src="http://localhost:8080/src/js/background/auto_subtitle_download/AutoSubtitleDownloadService.js"></script>
+
+<link rel="import" href="http://localhost:8080/src/js/option/plussub-option/plussub-option.html">
+
+
+<dom-module id="settings-plussub">
   <template>
 
     <style>
@@ -27,10 +47,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .content {
       display: block;
       position: relative;
-      max-width: calc(100% - 10px);
+      max-width: 1000px;
       margin: 5px auto;
-      /*width: 1000px;*/
-      /*height:1000px;*/
+      width: 1000px;
+      height:1000px;
     }
 
     paper-card {
@@ -101,7 +121,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="content">
           <paper-card image="{{item.imageUrl}}">
             <div class="card-content">
-              <iframe src="https://s3.eu-central-1.amazonaws.com/plussub-static/test/end_to_end/embedded.html" style="width:1000%; height: 800px;" frameBorder="0"></iframe>
+              <plussub-option></plussub-option>
+              <!--<iframe src="http://localhost:8080/test/end_to_end/try_embedded.html" style="width:1000px; height: 1000px;"></iframe>-->
             </div>
           </paper-card>
       </div>
@@ -111,7 +132,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   Polymer({
 
-    is: 'demo-plussub',
+    is: 'settings-plussub',
 
     properties: {
         recipes2: Object
