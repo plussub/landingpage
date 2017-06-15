@@ -18,25 +18,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 
-<script src="http://localhost:8080/test/end_to_end/fakeVersionService.js"></script>
+<link rel="import" href="../bower_components/plussub-background/background.html">
 
-<script type="text/javascript" src="http://localhost:8080/src/js/MessageBus.js"></script>
-<script type="text/javascript" src="http://localhost:8080/src/js/Descriptor.js"></script>
-<script src="http://localhost:8080/src/js/LogService.js"></script>
-
-
-
-<script src="http://localhost:8080/src/js/background/meta/StoreService.js"></script>
-<script src="http://localhost:8080/src/js/background/meta/MetaConfig.js"></script>
-<script src="http://localhost:8080/src/js/background/meta/MetaService.js"></script>
-<script src="http://localhost:8080/src/js/background/parser/SrtParser.js"></script>
-<script src="http://localhost:8080/src/js/background/parser/ParserService.js"></script>
-<script src="http://localhost:8080/src/js/background/movie_information/MovieInformationService.js"></script>
-<script src="http://localhost:8080/src/js/background/subtitle_provider/pako/pako.js"></script>
-<script src="http://localhost:8080/src/js/background/subtitle_provider/SubtitleProvider.js"></script>
-<script src="http://localhost:8080/src/js/background/auto_subtitle_download/AutoSubtitleDownloadService.js"></script>
-
-<link rel="import" href="http://localhost:8080/src/js/option/plussub-option/plussub-option.html">
+<link rel="import" href="../bower_components/plussub-option-element/plussub-option/plussub-option.html">
 
 
 <dom-module id="settings-plussub">
@@ -122,7 +106,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-card image="{{item.imageUrl}}">
             <div class="card-content">
               <plussub-option></plussub-option>
-              <!--<iframe src="http://localhost:8080/test/end_to_end/try_embedded.html" style="width:1000px; height: 1000px;"></iframe>-->
             </div>
           </paper-card>
       </div>
