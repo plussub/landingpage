@@ -35,6 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="description-plussub.html">
 <link rel="import" href="demo-plussub.html">
 <link rel="import" href="settings-plussub.html">
+<link rel="import" href="../bower_components/plussub-content-scripts/content.html">
 
 
 <dom-module id="landingpage-plussub">
@@ -245,13 +246,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         </p>
                     </description-plussub>
 
-                    <demo-plussub name="demo" recipes2="[[recipes2]]">
-                        <paper-icon-button icon="app:menu" drawer-toggle slot="drawer-toggle"></paper-icon-button>
-                    </demo-plussub>
-
-                    <settings-plussub name="settings">
-                        <paper-icon-button icon="app:menu" drawer-toggle slot="drawer-toggle"></paper-icon-button>
-                    </settings-plussub>
+                    <demo-plussub name="demo"></demo-plussub>
+                    <settings-plussub name="settings"></settings-plussub>
 
                     <recipe-detail id="detailView" name="detail" recipe="[[_getRecipe(recipes, _idData.id)]]"></recipe-detail>
 

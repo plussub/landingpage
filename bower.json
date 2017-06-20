@@ -25,7 +25,9 @@
     "promise-polyfill": "polymerlabs/promise-polyfill#^2.0.0",
 
     "plussub-background":"^1.0.0",
-    "plussub-option-element":"^1.0.0"
+    "plussub-option-element":"^1.0.0",
+    "plussub-app-element":"^1.0.0",
+    "plussub-content-scripts": "^1.0.2"
   },
   "variants": {
     "1.x": {
