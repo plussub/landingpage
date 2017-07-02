@@ -35,7 +35,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="description-plussub.html">
 <link rel="import" href="demo-plussub.html">
 <link rel="import" href="settings-plussub.html">
+
+<script>
+    var srtPlayer = srtPlayer || {};
+    srtPlayer.ContentVideoSelector = ()=>{
+        return window.document.querySelector('landingpage-plussub').shadowRoot.querySelector('app-drawer-layout demo-plussub').shadowRoot.querySelectorAll('video')
+    };
+</script>
 <link rel="import" href="../bower_components/plussub-content-scripts/content.html">
+
 
 
 <dom-module id="landingpage-plussub">
@@ -300,6 +308,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             attached: function () {
                 this.async(function () {
+
+                    alert(srtPlayer.ContentVideoSelector());
                     if (!this._route.path) {
                         this.set('_route.path', '/home');
                     }
