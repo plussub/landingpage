@@ -29,8 +29,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 
-<link rel="import" href="recipe-detail.html">
-<link rel="import" href="recipe-list.html">
 <link rel="import" href="app-icons.html">
 <link rel="import" href="description-plussub.html">
 <link rel="import" href="demo-plussub.html">
@@ -181,6 +179,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <app-header-layout >
                 <app-header class="main-header" slot="header" effects="resize-title" condenses fixed shadow>
 
+
+                    <a hidden$="{{!wideLayout}}" href="https://github.com/plussub/landingpage"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+
+
                     <app-toolbar class="top-toolbar" hidden$="{{!wideLayout}}">
                         <slot name="drawer-toggle"></slot>
                         <div condensed-title></div>
@@ -256,9 +258,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
                     <demo-plussub name="demo"></demo-plussub>
                     <settings-plussub name="settings"></settings-plussub>
-
-                    <recipe-detail id="detailView" name="detail" recipe="[[_getRecipe(recipes, _idData.id)]]"></recipe-detail>
-
                 </iron-pages>
 
             </app-header-layout>
@@ -308,24 +307,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             attached: function () {
                 this.async(function () {
-
-                    alert(srtPlayer.ContentVideoSelector());
                     if (!this._route.path) {
                         this.set('_route.path', '/home');
                     }
                 });
-            },
-
-            _getRecipe: function () {
-                if (this.recipes && this._idData && this._idData.id) {
-                    for (var i = 0; i < this.recipes.length; ++i) {
-                        var r = this.recipes[i];
-                        if (r.id === this._idData.id) {
-                            return r;
-                        }
-                    }
-                }
-                return null;
             },
 
             _drawerSelected: function () {
