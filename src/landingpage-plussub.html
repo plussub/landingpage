@@ -36,9 +36,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <script>
     var srtPlayer = srtPlayer || {};
-    srtPlayer.ContentVideoSelector = ()=>{
-        return window.document.querySelector('landingpage-plussub').shadowRoot.querySelector('app-drawer-layout demo-plussub').shadowRoot.querySelectorAll('video')
-    };
+
+    srtPlayer.FindVideoServiceOptions = srtPlayer.FindVideoServiceOptions || {
+            collectNodeListOfFoundedVideos:() => window.document.querySelector('landingpage-plussub').shadowRoot.querySelector('app-drawer-layout demo-plussub').shadowRoot.querySelectorAll('video'),
+            observedNodeToDetectedAddedVideos:() => srtPlayer.FindVideoServiceOptions.collectNodeListOfFoundedVideos()[0].parentNode
+        };
 </script>
 <link rel="import" href="../bower_components/plussub-content-scripts/content.html">
 
