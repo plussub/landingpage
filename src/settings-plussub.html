@@ -24,104 +24,97 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
 <dom-module id="settings-plussub">
-  <template>
+    <template>
 
-    <style>
+        <style>
 
-    .content {
-      display: block;
-      position: relative;
-      max-width: 1000px;
-      margin: 5px auto;
-      width: 1000px;
-      height:1000px;
-    }
+            .content {
+                max-width: calc(100% - 10px);
+                margin: 5px auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
 
-    paper-card {
-      display: block;
-      margin: 5px;
+            paper-card {
+                display: block;
+                margin: 5px;
+                max-width:570px;
+            }
 
-      --paper-card-header-image: {
-        height: 200px;
-      }
-    }
+            h1{
+                background-color: var(--default-primary-color);
+                color:var(--text-primary-color);
+                width:100%;
+            }
 
-    paper-card h2 {
-      margin: 4px;
-      font-weight: normal;
-    }
+        </style>
 
-    paper-card p {
-      margin: 4px;
-      color: #999;
-    }
+        <plussub-option id="option" class="content" css="{{css}}" cue="{{cue}}">
+            <paper-card>
+                <div class="card-content">
+                    <h1 align="center">Styling</h1>
+                    <subtitle-styling css="{{css}}"></subtitle-styling>
+                </div>
+            </paper-card>
+            <paper-card>
+                <div class="card-content">
+                    <h1 align="center">Preview</h1>
+                    <preview-video id="previewVideo" cue="{{cue}}" css="{{css}}"></preview-video>
+                </div>
+            </paper-card>
+            <paper-card>
+                <div class="card-content">
+                    <h1 align="center">Positioning</h1>
+                    <subtitle-positioning cue="{{cue}}"></subtitle-positioning>
+                </div>
+            </paper-card>
+        </plussub-option>
+    </template>
 
-    paper-fab {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
+    <script>
 
-      --paper-fab-background: #EF5458;
-      --paper-fab-keyboard-focus-background: #DF4448;
-    }
+        class SettingsPlussub extends Polymer.Element {
 
-    @media (max-width: 960px) {
-      .content {
-        max-width: 800px;
-      }
+            ready(){
+                super.ready();
+                setTimeout(()=> this.$.option.load(),0);
+            }
 
-      .card-container {
-        width: 50%;
-      }
-    }
+            static get is() {
+                return "settings-plussub";
+            }
 
-    @media (max-width: 719px) {
-      app-toolbar {
-        height: 60px;
-      }
 
-      [condensed-title] {
-        background-image: url('../res/plussub128.png');
-        background-size: 60px;
-      }
+            static get properties() {
+                return {
+                    cue: {
+                        type: Object,
+                        value:()=> {
+                            let cue = new VTTCue(0, 60, "<c.srtPlayer> value </c.srtPlayer>");
+                            return Object.assign(cue,{
+                                position:3,
+                                line:100,
+                                size:100
+                            })
+                        }
+                    },
+                    css: {
+                        type: String,
+                        value: () => {
+                            var customSubtitleCss = '::cue(.srtPlayer) \
+                    {\
+                        background-color:green;\
+                    }';
+                            return css_beautify(customSubtitleCss);
+                        }
+                    }
 
-      [main-title] {
-        top: -60px;
-        background-image: url('../res/plussub267.png');
-        background-size: 90px;
-      }
+                }
+            }
+        }
 
-      .content {
-        max-width: 400px;
-      }
+        customElements.define(SettingsPlussub.is, SettingsPlussub);
 
-      .card-container {
-        width: 100%;
-      }
-    }
-
-    </style>
-
-      <div class="content">
-          <paper-card image="{{item.imageUrl}}">
-            <div class="card-content">
-              <plussub-option></plussub-option>
-            </div>
-          </paper-card>
-      </div>
-  </template>
-
-  <script>
-
-  Polymer({
-
-    is: 'settings-plussub',
-
-    properties: {
-        recipes2: Object
-    }
-
-  });
-
-  </script>
+    </script>
 </dom-module>
