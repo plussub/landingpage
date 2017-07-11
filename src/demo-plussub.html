@@ -57,7 +57,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
             <paper-card>
                 <div class="card-content">
-                    <plussub-app></plussub-app>
+                    <plussub-app open-settings="[[openSettings]]"></plussub-app>
                 </div>
             </paper-card>
             <paper-card>
@@ -83,7 +83,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             static get is() {
                 return "demo-plussub";
             }
-
+            static get properties() {
+                return {
+                    openSettings:{
+                        type:Object,
+                        value:()=> Object.assign({fn: () => location.href="#/settings"})
+                    }
+                }
+            }
             enter(event){
 
                 var videoElement = document.createElement('video');
