@@ -18,9 +18,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 
-<link rel="import" href="../bower_components/plussub-background/background.html">
+<link rel="import" href="../bower_components/plussub-core/background/background.html">
 
-<link rel="import" href="../bower_components/plussub-option-element/plussub-option/plussub-option.html">
+<link rel="import" href="../bower_components/plussub-core/option-element/plussub-option/plussub-option.html">
 
 
 <dom-module id="settings-plussub">
@@ -61,7 +61,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-card>
                 <div class="card-content">
                     <h1 align="center">Preview</h1>
-                    <preview-video id="previewVideo" cue="{{cue}}" css="{{css}}"></preview-video>
+                    <preview-video id="previewVideo" css="{{css}}" cue="{{cue}}"></preview-video>
                 </div>
             </paper-card>
             <paper-card>
@@ -79,7 +79,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             ready(){
                 super.ready();
-                setTimeout(()=> this.$.option.load(),0);
             }
 
             static get is() {

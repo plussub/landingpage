@@ -21,8 +21,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 
-<link rel="import" href="../bower_components/plussub-background/background.html">
-<link rel="import" href="../bower_components/plussub-app-element/plussub-app/plussub-app.html">
+<link rel="import" href="../bower_components/plussub-core/background/background.html">
+<link rel="import" href="../bower_components/plussub-core/app-element/plussub-app/plussub-app.html">
+<link rel="import" href="../bower_components/plussub-core/app-element/debug-elements/show-redux-state.html">
 
 
 <dom-module id="demo-plussub">
@@ -34,7 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 margin: 5px auto;
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-around;
+                /*justify-content: space-around;*/
             }
 
             paper-card {
@@ -55,6 +56,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </style>
 
         <div class="content">
+            <paper-card>
+                <div class="card-content" style="display:none">
+                    <show-redux-state></show-redux-state>
+                </div>
+            </paper-card>
             <paper-card>
                 <div class="card-content">
                     <plussub-app open-settings="[[openSettings]]"></plussub-app>
